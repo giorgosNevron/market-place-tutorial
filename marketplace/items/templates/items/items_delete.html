@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% load i18n %}
+{% block head_title %}{% trans "Delete Website" %}{% endblock %}
+{% block page_title %}{% trans "Delete Website" %}{% endblock %}
+
+{% block content %}
+
+<div class="card shadow border-0 mb-7">
+  <div class="card-header">
+    <h5 class="mb-0">Are you sure you want to delete {{ object }}?</h5>
+    <div class="row">
+      <div class="col-md-4">
+        <form method="post" class="default-form">
+          {% csrf_token %}
+          {{ form.as_div }}
+          <a href="/" class="btn btn-default btn-sm mt-4">Go back</a> 
+          <button type="submit" class="btn btn-danger btn-sm mt-4">Delete</button> 
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
